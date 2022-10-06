@@ -1,2 +1,1 @@
-A new readme
-b
+prints files and directory in current directory
