@@ -1,0 +1,2 @@
+#!/bim/bash
+sudo chown betty hello
