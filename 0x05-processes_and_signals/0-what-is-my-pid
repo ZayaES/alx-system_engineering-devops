@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# prints the process ID(PID) of this script
+
+echo $$
+

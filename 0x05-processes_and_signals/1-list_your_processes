@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# prints all process for all users including those without TTY
+
+ps -auxf
