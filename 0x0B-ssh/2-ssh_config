@@ -48,8 +48,8 @@ Host *
 #   RekeyLimit 1G 1h
     SendEnv LANG LC_*
     HashKnownHosts yes
-    HostName <server-ip-address>
-    User <username>
+    HostName 100.25.149.245
+    User ubuntu
     IdentityFile ~/.ssh/school
     PreferredAuthentications publickey
     PasswordAuthentication no
