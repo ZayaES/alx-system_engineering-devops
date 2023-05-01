@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-# connects to ssh server using key pair authentication
-ssh -i ~/.ssh/school ubuntu@100.25.149.245
-
