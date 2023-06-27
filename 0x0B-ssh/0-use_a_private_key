@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# script that connects to a server via ssh with pk
+
+ssh -i ~/.ssh/school ubuntu@54.236.41.129
