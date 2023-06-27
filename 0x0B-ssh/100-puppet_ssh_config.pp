@@ -1,3 +1,4 @@
+-- edits the config file for client ssh --
 file { '~/.ssh/config':
   ensure => file,
   owner  => 'root',
