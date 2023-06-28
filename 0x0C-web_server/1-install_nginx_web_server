@@ -2,23 +2,25 @@
 # installs and configures nginx server to listen at port 80 only
 
 sudo apt update;
-sudo apt-get install -y nginx;
-sudo ufw allow 'Nginx HTTP'
+sudo apt install -y nginx;
+sudo ufw allow 'Nginx HTTP';
+sudo chown -R $USER:$USER /var/www/html;
+sudo echo "Hello World!" > /var/www/html/index.html;
 
 sudo echo "server {
-	listen 80 default_server;
-	listen [::]:80 default_server;
+                   listen       80 default_server;
+                   listen       [::]:80 default_server;
 
-	root /var/www/html;
-	index index.html index.htm;
+                   root         /etc/nginx/html;
+                   index        index.html index.htm;
 
-	location /{
-		try_riles \$uri \$uri/ =404;
-	}
+                   location /{
+                              try_files \$uri \$uri/ =404;
+                   }
 
-	location /{
-	return 200 'Hello World!';
-	}
-}" > /etc/nginx/sites-available/default
+                   location /{
+                              return 200 'Hello World!';
+                   }
+          }" > /etc/nginx/sites-available/default;
 
-service nginx restart
+sudo service nginx restart
