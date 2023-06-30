@@ -23,7 +23,7 @@ cho "server {
                    }
 
 		   location /redirect_me {
-			      return 301 http://zayabell.tech
+			      return 301 http://zayabell.tech;
 		   }
           }" > /etc/nginx/sites-available/default;
 
