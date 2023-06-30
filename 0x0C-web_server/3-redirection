@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # installs and configures nginx server to listen at port 80 only
 
-sudo echo "server {
+echo "server {
                    listen       80 default_server;
                    listen       [::]:80 default_server;
 
