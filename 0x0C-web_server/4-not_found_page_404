@@ -20,7 +20,7 @@ server {
                    error_page 404 /custom_404.html;
                    location = /custom_404.html {
                         internal;
-                        retrun 404 "Ceci n'est pas une page";
+                        return 404 "Ceci n'est pas une page";
                    }
           }
 EOT
