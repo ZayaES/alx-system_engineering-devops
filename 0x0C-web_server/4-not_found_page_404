@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+# installs and configures nginx server to have custom 404 page
+
+sudo apt update;
+sudo apt install nginx -y;
+sudo ufw allow 'Nginx HTTP';
+sudo chown -R "$USER":"$USER" /var/www/html;
+sudo chown -R "$USER":"$USER" /etc/nginx/sites-available
+echo "Hello World!" > /var/www/html/index.html;
+sudo touch /etc/nginx/sites-available/redirect;
+sudo tee -a /etc/nginx/sites-available/redirect > /dev/null <<EOT
+server {
+                   listen       80;
+                   server_name  zayabell.tech 54.236.41.129;
+
+                   location /redirect_me {
+                              return 301 http://zayabell.tech;
+                   }
+
+                   error_page 404 /custom_404.html;
+                   location = /custom_404.html {
+                        internal;
+                        retrun 404 "Ceci n'est pas une page";
+                   }
+          }
+EOT
+sudo ln -s /etc/nginx/sites-available/redirect /etc/nginx/sites-enabled/
+
+sudo service nginx restart
