@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# installs and configures nginx server to listen at port 80 only
+
+sudo apt update;
+sudo apt install nginx -y;
+sudo ufw allow 'Nginx HTTP';
+sudo chown -R "$USER":"$USER" /var/www/html;
+echo "Hello World!" > /var/www/html/index.html;
+sudo mkdir /etc/nginx/sites-available/redirect;
+
+echo "server {
+                   listen       80 
+		   server_name  zayabell.tech
+
+		   location /redirect_me {
+			      return 301 http://zayabell.tech;
+		   }
+          }" > /etc/nginx/sites-available/redirect;
+sudo ln -s /etc/nginx/sites-available/redirect /etc/nginx/sites-enabled/
+
+sudo service nginx restart
