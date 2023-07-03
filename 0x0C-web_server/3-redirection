@@ -10,6 +10,7 @@ echo "Hello World!" > /var/www/html/index.html;
 echo "server {
                    listen       80 default_server;
                    listen       [::]:80 default_server;
+		   server_name  zayabell.tech
 
                    root         /etc/nginx/html;
                    index        index.html index.htm;
