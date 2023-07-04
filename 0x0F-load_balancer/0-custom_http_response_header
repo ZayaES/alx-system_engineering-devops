@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+# configures a two servers with like previous and also with custom headers
+
+sudo apt purge nginx nginx-common nginx-core -y;
+sudo apt update;
+sudo apt install nginx -y;
+sudo chown -R "$USER":"$USER" /var/www/html;
+sudo chown -R "$USER":"$USER" /etc/nginx;
+sudo ufw allow 'Nginx HTTP';
+sudo tee /var/www/html/index.html > /dev/null <<EOT
+Hello World!
+EOT
+
+sudo tee /var/www/html/custom_404.html > /dev/null <<EOT
+Ceci n'est pas une page
+EOT
+
+sudo tee /etc/nginx/sites-available/default > /dev/null <<EOT
+server {
+                   listen       80 default_server;
+                   listen       [::]:80 default_server;
+                   server_name  _ zayabell.tech;
+
+                   root         /var/www/html;
+                   index        index.html index.htm;
+
+                   add_header   X-Served-By "$HOSTNAME";
+
+                   location /redirect_me {
+                              return 301 http://zayabell.tech;
+                   }
+
+                   error_page   404 /custom_404.html;
+
+                   location = /custom_404.html {
+                        internal;
+                   }
+          }
+EOT
+
+sudo service nginx restart
