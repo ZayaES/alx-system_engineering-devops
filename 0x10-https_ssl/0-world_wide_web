@@ -1,0 +1,17 @@
+#/usr/bin/env bash
+# prints record and ip addresses
+
+fetch_domain() {
+	linfo=$(dig "$2"."$1" | grep -A1 "ANSWER SECTION:" | cut -d $'\t' -s -f 4-5)
+	echo "$2" $linfo | awk '{ print "The subdomain "$1" is a "$2" record and points to "$3" "}'
+}
+if [ "$#" == 1 ]
+then
+	fetch_domain "$1" "www"
+	fetch_domain "$1" "lb-01"
+	fetch_domain "$1" "web-01"
+	fetch_domain "$1" "web-02"
+elif [ "$#" == 2 ]
+then
+	fetch_domain "$1" "$2"
+fi
