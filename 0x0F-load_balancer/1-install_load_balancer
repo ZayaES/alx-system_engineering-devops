@@ -39,6 +39,8 @@ backend my_web_back
 EOT
 sudo chown -R "$USER":"$USER" /etc/default/haproxy
 sudo chmod +700 /etc/default/haproxy
-sudo sed -i 's/ENABLED=0/ENABLED=1/' /etc/default/haproxy
+echo "ENABLED=1" >> /etc/default/haproxy
 
 sudo service haproxy start;
+sudo systemctl enable haproxy;
+sudo service haproxy restart;
