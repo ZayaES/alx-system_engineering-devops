@@ -3,6 +3,10 @@
 
 fetch_domain() {
 	linfo=$(dig "$2"."$1" | grep -A1 "ANSWER SECTION:" | cut -d $'\t' -s -f 4-5)
+	# if [ [ echo $linfo | cut -d ' ' -f1 | wc -m < '0x-https_ssl'] -gt 10 ]
+	# then
+	#	linfo=$(dig "$2"."$1" | grep -A1 "ANSWER SECTION:" | cut -d $'\t' -s -f 3,4)
+	# fi
 	echo "$2" $linfo | awk '{ print "The subdomain "$1" is a "$2" record and points to "$3" "}'
 }
 if [ "$#" == 1 ]
