@@ -18,7 +18,8 @@ defaults
     timeout server 50000
 
 frontend my_web_front
-    bind *:443 ssl crt /etc/letsencrypt/live/www.zayabell.tech/fullchain.pem
+    bind *:80
+    bind *:443 ssl crt /etc/haproxy/certs/www.zayabell.tech/fullchain.pem
     mode http
     default_backend my_web_back
 
