@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+# configuration file for redirection of 8080 to 80
 *filter
 :ufw-before-input - [0:0]
 :ufw-before-output - [0:0]
