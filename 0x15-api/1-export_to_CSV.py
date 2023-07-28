@@ -28,7 +28,7 @@ if __name__ == "__main__":
 
     with open(filepath, mode='w') as csv_file:
         for x in range(y, y + total):
-            csv_file.write('"{}", "{}", "{}", "{}"\n'.format(
+            csv_file.write('"{}","{}","{}","{}"\n'.format(
                 str(id_), str(user.json()['username']),
                 str(u_todo.json()[x]['completed']),
                 str(u_todo.json()[x]['title'])))
