@@ -3,7 +3,6 @@
 
 import requests
 import sys
-import csv
 
 
 if __name__ == "__main__":
@@ -30,5 +29,6 @@ if __name__ == "__main__":
     with open(filepath, mode='w') as csv_file:
         for x in range(y, y + total):
             csv_file.write('"{}", "{}", "{}", "{}"\n'.format(
-                id_, user.json()['username'], u_todo.json()[x]['completed'],
-                u_todo.json()[x]['title']))
+                str(id_), str(user.json()['username']),
+                str(u_todo.json()[x]['completed']),
+                str(u_todo.json()[x]['title'])))
