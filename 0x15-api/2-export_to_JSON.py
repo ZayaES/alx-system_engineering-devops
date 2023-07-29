@@ -23,7 +23,7 @@ if __name__ == "__main__":
         if ((todo[x]['userId']) == int(id_)):
             task_data = {
                     "task": str(todo[x]['title']),
-                    "completed": str(todo[x]['completed']),
+                    "completed": (todo[x]['completed']),
                     "username": str(user.json()['username'])
                     }
             t_data.append(task_data)
