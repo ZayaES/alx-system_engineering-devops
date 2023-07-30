@@ -22,9 +22,6 @@ if __name__ == "__main__":
         for x in range(0, len(u_todo.json())):
             task_data = {}
             if todo[x]['userId'] == id_count:
-                print(user['id'])
-                print(user['username'])
-                print(todo[x]['title'])
                 task_data = {
                         "username": str(user['username']),
                         "task": str(todo[x]['title']),
