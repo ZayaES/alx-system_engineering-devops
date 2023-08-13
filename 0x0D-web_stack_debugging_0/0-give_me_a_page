@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 # configures apache to return a page when querying localhost
 sudo mkdir /etc/apache2/sites-available/localhost.conf
 
