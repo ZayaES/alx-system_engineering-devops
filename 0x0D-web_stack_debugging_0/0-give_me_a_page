@@ -1,0 +1,9 @@
+#!/usr/bin/bash
+# configures apache to return a page when querying localhost
+sudo mkdir /etc/apache2/sites-available/localhost.conf
+
+sudo tee /etc/apache2/sites-available/localhost.conf &> /dev/null <<EOT
+ServerName localhost
+EOT
+
+sudo service apache2 restart
