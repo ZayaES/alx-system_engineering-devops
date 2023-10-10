@@ -1,0 +1,17 @@
+frontend my_web_front
+        bind *:80
+        bind *:443 ssl crt /etc/haproxy/certs/www.zayabell.tech/fullchain.pem
+        mode http
+        default_backend my_web_back
+
+backend my_web_back
+        mode http
+        balance roundrobin
+        server 173544-web-01 3.84.158.163:80 check
+        server 173544-web-02 100.26.169.63:80 check
+
+frontend http_redirect
+        bind *:80
+        mode http
+        option forwardfor
+        redirect scheme https code 301 if !{ ssl_fc }
