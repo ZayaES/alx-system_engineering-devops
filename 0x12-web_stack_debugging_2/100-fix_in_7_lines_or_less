@@ -1,0 +1,7 @@
+#!/usr/bin/bash
+#does the previous task in 7 lines or less
+sudo install -y nginx
+cat  <<EOF >> /etc/nginx/nginx.conf
+user nginx
+EOF
+sudo service nginx restart
