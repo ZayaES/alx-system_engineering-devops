@@ -7,5 +7,5 @@ frontend my_web_front
 backend my_web_back
         mode http
         balance roundrobin
-        server 173544-web-01 3.84.158.163:80 check
+        server 173544-web-01 34.224.62.98:80 check
         server 173544-web-02 100.26.169.63:80 check
