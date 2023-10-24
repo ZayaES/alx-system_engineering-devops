@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# creates mysqldump of a db and archives it
+
+mysqldump --all-databases -u root -p="$1" > backup.sql
+year=$(date +%Y)
+month=$(date +%m)
+day=$(date +%d)
+filename="$day-$month-$year.tar.gz"
+tar -czvf "$filename" backup.sql
