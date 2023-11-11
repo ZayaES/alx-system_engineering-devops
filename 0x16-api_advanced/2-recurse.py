@@ -23,6 +23,8 @@ def recurse(subreddit, hot_list=[], after="", count=0):
                             headers=headers,
                             params=par,
                             allow_redirects=False)
+    if response.status_code == 404:
+        return None
     response_j = response.json()
     result = response_j['data']
     after = result['after']
