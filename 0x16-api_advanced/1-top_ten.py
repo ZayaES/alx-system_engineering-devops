@@ -13,7 +13,7 @@ def top_ten(subreddit):
                         headers={'User-Agent': 'Boss, na me'},
                         params={'limit': 10},
                         allow_redirects=False)
- 
+
     if data.status_code == 404:
         print(None)
         return
