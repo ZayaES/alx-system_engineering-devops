@@ -5,12 +5,12 @@ import requests
 
 def recurse(subreddit, hot_list=[], after="", count=0):
     """the main function that does the above"""
-    
+
     url = "https://www.reddit.com/r/{}/hot/.json".format(subreddit)
     par = {
-            'count' : count,
-            'after' : after,
-            'limit' : 100
+            'count': count,
+            'after': after,
+            'limit': 100
             }
     headers = {
             'User-Agent': 'Boss, na me'
@@ -32,5 +32,5 @@ def recurse(subreddit, hot_list=[], after="", count=0):
 
     if after is not None:
         recurse(subreddit, hot_list, after, count)
-    
+
     return hot_list
