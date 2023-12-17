@@ -1,12 +1,12 @@
-# Increased Files opened
+# Allow holberton user to use server
 
-exec {'find and replace':
+exec {'allow user':
   provider => shell,
-  before   => Exec['replace-2'],
-  command  => 'sudo sed -i "s/nofile 5/nofile 50000/" /etc/security/limits.conf',
+  command  => 'sudo echo "AllowUsers holberton" >> /etc/ssh/ssh_config',
+  before   => Exec['allow user'],
 }
 
-exec {'find and replace2':
-  provider => shell,
-  command  => 'sudo sed -i "s/nofile 4/nofile 40000/" /etc/security/limits.conf',
-}
+#exec {'replace-2':
+#  provider => shell,
+#  command  => 'sudo sed -i "s/nofile 4/nofile 40000/" /etc/security/limits.conf',
+#}
